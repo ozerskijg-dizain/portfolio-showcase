@@ -1,44 +1,43 @@
 import { useState, useEffect } from "react";
-import { Github, Linkedin, Mail, ExternalLink, ChevronDown, Code2, Layers, Terminal, Globe } from "lucide-react";
+import { Github, Mail, ExternalLink, ChevronDown, Globe, ShoppingCart, Palette, Download, Send, Bot } from "lucide-react";
 
-const NAV_LINKS = ["About", "Skills", "Projects", "Contact"];
-
-const SKILLS = [
-  { category: "Frontend", items: ["React", "TypeScript", "Tailwind CSS", "Next.js"] },
-  { category: "Backend", items: ["Node.js", "Python", "PostgreSQL", "REST APIs"] },
-  { category: "Tools", items: ["Git", "Docker", "Figma", "VS Code"] },
+const NAV_LINKS = [
+  { label: "О себе", id: "about" },
+  { label: "Проекты", id: "projects" },
+  { label: "Навыки", id: "skills" },
+  { label: "Контакты", id: "contact" },
 ];
 
 const PROJECTS = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-stack shopping platform with real-time inventory, payment integration, and admin dashboard.",
-    tags: ["React", "Node.js", "PostgreSQL"],
+    title: "Сайт для ресторана",
+    description: "Современный лендинг с меню, галереей и онлайн-бронированием столиков.",
+    tags: ["React", "Figma", "CSS"],
     icon: <Globe className="w-5 h-5" />,
   },
   {
-    title: "Task Management App",
-    description: "Kanban-style project manager with drag-and-drop, team collaboration, and analytics.",
-    tags: ["TypeScript", "React", "Tailwind"],
-    icon: <Layers className="w-5 h-5" />,
+    title: "Интернет-магазин",
+    description: "Полнофункциональный магазин с каталогом, корзиной и оплатой онлайн.",
+    tags: ["React", "Node.js", "PostgreSQL"],
+    icon: <ShoppingCart className="w-5 h-5" />,
   },
   {
-    title: "CLI Developer Tool",
-    description: "Command-line utility that automates boilerplate generation and project scaffolding.",
-    tags: ["Python", "CLI", "Docker"],
-    icon: <Terminal className="w-5 h-5" />,
+    title: "Портфолио дизайнера",
+    description: "Стильный сайт-визитка с анимациями и галереей работ.",
+    tags: ["HTML/CSS", "JavaScript", "Figma"],
+    icon: <Palette className="w-5 h-5" />,
   },
-  {
-    title: "Open Source UI Library",
-    description: "A component library with 40+ accessible, customizable components used by 2k+ developers.",
-    tags: ["React", "TypeScript", "Storybook"],
-    icon: <Code2 className="w-5 h-5" />,
-  },
+];
+
+const SKILLS = [
+  { name: "HTML / CSS", level: 95 },
+  { name: "JavaScript / React", level: 88 },
+  { name: "Figma", level: 80 },
+  { name: "Telegram-боты", level: 85 },
 ];
 
 export default function Index() {
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -47,24 +46,24 @@ export default function Index() {
   }, []);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-mono">
+    <div className="min-h-screen bg-background text-foreground font-sans">
 
       {/* NAV */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-background/90 backdrop-blur border-b border-border" : ""}`}>
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-background/95 backdrop-blur border-b border-border" : ""}`}>
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-          <span className="text-primary font-bold text-lg tracking-tight">&lt;dev /&gt;</span>
+          <span className="text-primary font-bold text-lg tracking-tight font-mono">&lt;gennady /&gt;</span>
           <div className="hidden md:flex gap-8">
             {NAV_LINKS.map((link) => (
               <button
-                key={link}
-                onClick={() => scrollTo(link)}
+                key={link.id}
+                onClick={() => scrollTo(link.id)}
                 className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
-                {link}
+                {link.label}
               </button>
             ))}
           </div>
@@ -72,42 +71,28 @@ export default function Index() {
       </nav>
 
       {/* HERO */}
-      <section className="min-h-screen flex flex-col justify-center px-6 max-w-5xl mx-auto pt-20">
-        <p className="text-primary text-sm mb-3 tracking-widest uppercase">Hello, World</p>
+      <section className="min-h-screen flex flex-col justify-center px-6 max-w-5xl mx-auto pt-20 relative">
+        <p className="text-primary text-sm mb-3 tracking-widest uppercase font-mono">Веб-разработка</p>
         <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-          I'm <span className="text-primary">Alex Morgan</span>
+          Разработка сайтов<br />
+          <span className="text-primary">под ключ</span>
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-10 leading-relaxed">
-          Full-Stack Developer crafting clean, performant web experiences with modern technologies.
+          Создаю современные сайты и Telegram-ботов для вашего бизнеса
         </p>
-        <div className="flex gap-4 mb-16">
+        <div className="flex gap-4 mb-16 flex-wrap">
           <button
-            onClick={() => scrollTo("Projects")}
+            onClick={() => scrollTo("projects")}
             className="px-6 py-3 bg-primary text-primary-foreground rounded text-sm font-semibold hover:opacity-90 transition-opacity"
           >
-            View Work
+            Портфолио
           </button>
           <button
-            onClick={() => scrollTo("Contact")}
+            onClick={() => scrollTo("contact")}
             className="px-6 py-3 border border-border text-foreground rounded text-sm hover:border-primary hover:text-primary transition-colors"
           >
-            Get in Touch
+            Связаться
           </button>
-        </div>
-        <div className="flex gap-5">
-          {[
-            { icon: <Github className="w-5 h-5" />, href: "#" },
-            { icon: <Linkedin className="w-5 h-5" />, href: "#" },
-            { icon: <Mail className="w-5 h-5" />, href: "#" },
-          ].map((social, i) => (
-            <a
-              key={i}
-              href={social.href}
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              {social.icon}
-            </a>
-          ))}
         </div>
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-muted-foreground">
           <ChevronDown className="w-5 h-5" />
@@ -117,28 +102,29 @@ export default function Index() {
       {/* ABOUT */}
       <section id="about" className="py-24 px-6 max-w-5xl mx-auto">
         <div className="flex items-center gap-4 mb-12">
-          <span className="text-primary text-sm tracking-widest uppercase">01.</span>
-          <h2 className="text-3xl font-bold">About</h2>
+          <span className="text-primary text-sm tracking-widest uppercase font-mono">01.</span>
+          <h2 className="text-3xl font-bold">О себе</h2>
           <div className="flex-1 h-px bg-border" />
         </div>
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
+          <div className="space-y-5 text-muted-foreground leading-relaxed">
+            <p className="text-foreground text-xl font-semibold">Привет, я Геннадий 👋</p>
             <p>
-              I'm a full-stack developer with 5+ years of experience building web applications that users love. I focus on writing clean, maintainable code and delivering polished user experiences.
+              Занимаюсь разработкой сайтов и веб-приложений более <span className="text-primary font-semibold">3 лет</span>. Создаю проекты с нуля — от дизайна до запуска.
             </p>
             <p>
-              My work spans startups and enterprise clients, ranging from consumer apps to internal tools. I'm passionate about open source and regularly contribute to the developer community.
+              Помогаю бизнесу получить качественный digital-продукт: лендинги, интернет-магазины, корпоративные сайты и Telegram-боты.
             </p>
             <p>
-              When I'm not coding, you'll find me reading about system design, contributing to open source, or brewing specialty coffee.
+              Работаю чётко по срокам, всегда на связи и довожу проекты до результата.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { label: "Projects Shipped", value: "40+" },
-              { label: "Years Experience", value: "5+" },
-              { label: "Open Source Stars", value: "2k+" },
-              { label: "Happy Clients", value: "30+" },
+              { label: "Проектов сдано", value: "20+" },
+              { label: "Лет опыта", value: "3+" },
+              { label: "Довольных клиентов", value: "15+" },
+              { label: "Telegram-ботов", value: "10+" },
             ].map((stat) => (
               <div key={stat.label} className="bg-card border border-border rounded-lg p-5">
                 <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
@@ -149,52 +135,57 @@ export default function Index() {
         </div>
       </section>
 
-      {/* SKILLS */}
-      <section id="skills" className="py-24 px-6 max-w-5xl mx-auto">
-        <div className="flex items-center gap-4 mb-12">
-          <span className="text-primary text-sm tracking-widest uppercase">02.</span>
-          <h2 className="text-3xl font-bold">Skills</h2>
-          <div className="flex-1 h-px bg-border" />
-        </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {SKILLS.map((group) => (
-            <div key={group.category} className="bg-card border border-border rounded-lg p-6">
-              <h3 className="text-primary text-sm font-semibold tracking-widest uppercase mb-4">{group.category}</h3>
-              <div className="flex flex-wrap gap-2">
-                {group.items.map((skill) => (
-                  <span key={skill} className="text-xs px-3 py-1 bg-secondary text-secondary-foreground rounded-full border border-border">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* PROJECTS */}
       <section id="projects" className="py-24 px-6 max-w-5xl mx-auto">
         <div className="flex items-center gap-4 mb-12">
-          <span className="text-primary text-sm tracking-widest uppercase">03.</span>
-          <h2 className="text-3xl font-bold">Projects</h2>
+          <span className="text-primary text-sm tracking-widest uppercase font-mono">02.</span>
+          <h2 className="text-3xl font-bold">Проекты</h2>
           <div className="flex-1 h-px bg-border" />
         </div>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {PROJECTS.map((project) => (
             <div
               key={project.title}
-              className="group bg-card border border-border rounded-lg p-6 hover:border-primary transition-colors cursor-pointer"
+              className="group bg-card border border-border rounded-lg p-6 hover:border-primary transition-colors flex flex-col"
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="text-primary">{project.icon}</div>
                 <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
               </div>
               <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag) => (
                   <span key={tag} className="text-xs text-primary font-mono">{tag}</span>
                 ))}
+              </div>
+              <button className="w-full py-2 border border-border rounded text-sm text-muted-foreground hover:border-primary hover:text-primary transition-colors">
+                Посмотреть
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SKILLS */}
+      <section id="skills" className="py-24 px-6 max-w-5xl mx-auto">
+        <div className="flex items-center gap-4 mb-12">
+          <span className="text-primary text-sm tracking-widest uppercase font-mono">03.</span>
+          <h2 className="text-3xl font-bold">Навыки</h2>
+          <div className="flex-1 h-px bg-border" />
+        </div>
+        <div className="max-w-2xl space-y-6">
+          {SKILLS.map((skill) => (
+            <div key={skill.name}>
+              <div className="flex justify-between text-sm mb-2">
+                <span className="font-medium">{skill.name}</span>
+                <span className="text-primary font-mono">{skill.level}%</span>
+              </div>
+              <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-primary rounded-full transition-all"
+                  style={{ width: `${skill.level}%` }}
+                />
               </div>
             </div>
           ))}
@@ -204,27 +195,47 @@ export default function Index() {
       {/* CONTACT */}
       <section id="contact" className="py-24 px-6 max-w-5xl mx-auto">
         <div className="flex items-center gap-4 mb-12">
-          <span className="text-primary text-sm tracking-widest uppercase">04.</span>
-          <h2 className="text-3xl font-bold">Contact</h2>
+          <span className="text-primary text-sm tracking-widest uppercase font-mono">04.</span>
+          <h2 className="text-3xl font-bold">Контакты</h2>
           <div className="flex-1 h-px bg-border" />
         </div>
         <div className="max-w-xl">
           <p className="text-muted-foreground mb-8 leading-relaxed">
-            I'm currently open to new opportunities. Whether you have a project in mind or just want to say hi, my inbox is always open.
+            Готов обсудить ваш проект. Напишите мне — отвечу в течение нескольких часов.
           </p>
-          <a
-            href="mailto:alex@example.com"
-            className="inline-flex items-center gap-2 px-8 py-4 border border-primary text-primary rounded hover:bg-primary hover:text-primary-foreground transition-colors font-semibold"
-          >
-            <Mail className="w-4 h-4" />
-            Say Hello
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="mailto:gennady@example.com"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-primary text-primary rounded hover:bg-primary hover:text-primary-foreground transition-colors font-semibold text-sm"
+            >
+              <Mail className="w-4 h-4" />
+              gennady@example.com
+            </a>
+            <a
+              href="https://t.me/username"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded hover:opacity-90 transition-opacity font-semibold text-sm"
+            >
+              <Send className="w-4 h-4" />
+              Написать в Telegram
+            </a>
+          </div>
+          <div className="mt-4">
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-border text-muted-foreground rounded hover:border-primary hover:text-primary transition-colors text-sm"
+            >
+              <Download className="w-4 h-4" />
+              Скачать резюме
+            </a>
+          </div>
         </div>
       </section>
 
       {/* FOOTER */}
       <footer className="border-t border-border py-8 px-6 text-center text-muted-foreground text-sm">
-        <p>Built with React & TypeScript &mdash; Designed with intent.</p>
+        <p>© 2025 Геннадий — Разработка сайтов под ключ</p>
       </footer>
     </div>
   );
