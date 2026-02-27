@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Github, Mail, ExternalLink, ChevronDown, Globe, ShoppingCart, Palette, Download, Send, Bot } from "lucide-react";
+import { Mail, ExternalLink, ChevronDown, Globe, ShoppingCart, Palette, Send, Bot } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "О себе", id: "about" },
@@ -10,30 +10,30 @@ const NAV_LINKS = [
 
 const PROJECTS = [
   {
-    title: "Сайт для ресторана",
-    description: "Современный лендинг с меню, галереей и онлайн-бронированием столиков.",
-    tags: ["React", "Figma", "CSS"],
+    title: "FoodPlace — сайт ресторана",
+    description: "Лендинг для ресторана с интерактивным меню, галереей блюд и формой бронирования столиков.",
+    tags: ["React", "CSS", "Figma"],
     icon: <Globe className="w-5 h-5" />,
   },
   {
-    title: "Интернет-магазин",
-    description: "Полнофункциональный магазин с каталогом, корзиной и оплатой онлайн.",
+    title: "ShopFlow — интернет-магазин",
+    description: "Полноценный магазин с каталогом товаров, фильтрами, корзиной и оформлением заказа.",
     tags: ["React", "Node.js", "PostgreSQL"],
     icon: <ShoppingCart className="w-5 h-5" />,
   },
   {
-    title: "Портфолио дизайнера",
-    description: "Стильный сайт-визитка с анимациями и галереей работ.",
-    tags: ["HTML/CSS", "JavaScript", "Figma"],
-    icon: <Palette className="w-5 h-5" />,
+    title: "VisaBot — Telegram-бот",
+    description: "Бот для автоматической обработки заявок, уведомлений и ответов на часто задаваемые вопросы.",
+    tags: ["Python", "Telegram API", "SQLite"],
+    icon: <Bot className="w-5 h-5" />,
   },
 ];
 
 const SKILLS = [
-  { name: "HTML / CSS", level: 95 },
-  { name: "JavaScript / React", level: 88 },
-  { name: "Figma", level: 80 },
-  { name: "Telegram-боты", level: 85 },
+  { name: "HTML / CSS", level: 90 },
+  { name: "JavaScript / React", level: 82 },
+  { name: "Figma", level: 75 },
+  { name: "Telegram-боты", level: 80 },
 ];
 
 export default function Index() {
@@ -78,7 +78,7 @@ export default function Index() {
           <span className="text-primary">под ключ</span>
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-10 leading-relaxed">
-          Создаю современные сайты и Telegram-ботов для вашего бизнеса
+          Современные сайты и Telegram-боты для вашего бизнеса
         </p>
         <div className="flex gap-4 mb-16 flex-wrap">
           <button
@@ -110,21 +110,21 @@ export default function Index() {
           <div className="space-y-5 text-muted-foreground leading-relaxed">
             <p className="text-foreground text-xl font-semibold">Привет, я Геннадий 👋</p>
             <p>
-              Занимаюсь разработкой сайтов и веб-приложений более <span className="text-primary font-semibold">3 лет</span>. Создаю проекты с нуля — от дизайна до запуска.
+              Занимаюсь веб-разработкой. В работе ценю <span className="text-primary font-semibold">чистый код</span>, продуманный интерфейс и внимание к деталям.
             </p>
             <p>
-              Помогаю бизнесу получить качественный digital-продукт: лендинги, интернет-магазины, корпоративные сайты и Telegram-боты.
+              Помогаю бизнесу и частным клиентам получить качественный digital-продукт: лендинги, интернет-магазины и Telegram-боты.
             </p>
             <p>
-              Работаю чётко по срокам, всегда на связи и довожу проекты до результата.
+              Всегда на связи, работаю чётко и довожу проекты до результата.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { label: "Проектов сдано", value: "20+" },
-              { label: "Лет опыта", value: "3+" },
-              { label: "Довольных клиентов", value: "15+" },
-              { label: "Telegram-ботов", value: "10+" },
+              { label: "Проектов сдано", value: "10+" },
+              { label: "Довольных клиентов", value: "8+" },
+              { label: "Telegram-ботов", value: "5+" },
+              { label: "Технологий", value: "10+" },
             ].map((stat) => (
               <div key={stat.label} className="bg-card border border-border rounded-lg p-5">
                 <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>
@@ -219,15 +219,6 @@ export default function Index() {
             >
               <Send className="w-4 h-4" />
               Написать в Telegram
-            </a>
-          </div>
-          <div className="mt-4">
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-border text-muted-foreground rounded hover:border-primary hover:text-primary transition-colors text-sm"
-            >
-              <Download className="w-4 h-4" />
-              Скачать резюме
             </a>
           </div>
         </div>
