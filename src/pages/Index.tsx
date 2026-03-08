@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ExternalLink, ChevronDown, Globe, ShoppingCart, Camera, Send, Download, Menu, X } from "lucide-react";
+import { ExternalLink, ChevronDown, Globe, ShoppingCart, Camera, Send, Download, Menu, X, Utensils, Briefcase, Home, Stethoscope, GraduationCap, Scissors, Car, Dumbbell } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "О себе", id: "about" },
@@ -9,24 +9,17 @@ const NAV_LINKS = [
 ];
 
 const PROJECTS = [
-  {
-    title: "Сайт для фотостудии",
-    description: "Презентационный сайт с портфолио, галереей работ, расписанием и онлайн-записью на съёмку.",
-    tags: ["React", "CSS", "Адаптив"],
-    icon: <Camera className="w-5 h-5" />,
-  },
-  {
-    title: "Лендинг кофейни",
-    description: "Стильная страница с меню, акциями, картой проезда и формой для бронирования столика.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    icon: <Globe className="w-5 h-5" />,
-  },
-  {
-    title: "Интернет-магазин цветов",
-    description: "Каталог с фильтрами, корзиной, оформлением заказа и уведомлениями через Telegram-бот.",
-    tags: ["React", "Node.js", "Telegram API"],
-    icon: <ShoppingCart className="w-5 h-5" />,
-  },
+  { title: "Сайт для фотостудии", description: "Презентационный сайт с портфолио, галереей работ, расписанием и онлайн-записью на съёмку.", tags: ["React", "CSS", "Адаптив"], icon: <Camera className="w-5 h-5" /> },
+  { title: "Лендинг кофейни", description: "Стильная страница с меню, акциями, картой проезда и формой для бронирования столика.", tags: ["HTML", "CSS", "JavaScript"], icon: <Globe className="w-5 h-5" /> },
+  { title: "Интернет-магазин цветов", description: "Каталог с фильтрами, корзиной, оформлением заказа и уведомлениями через Telegram-бот.", tags: ["React", "Node.js", "Telegram API"], icon: <ShoppingCart className="w-5 h-5" /> },
+  { title: "Сайт ресторана", description: "Промо-страница с меню, историей заведения, фотогалереей и онлайн-бронированием стола.", tags: ["React", "CSS", "Адаптив"], icon: <Utensils className="w-5 h-5" /> },
+  { title: "Корпоративный сайт агентства", description: "Многостраничный сайт с описанием услуг, командой, кейсами и формой обратной связи.", tags: ["React", "TypeScript", "Адаптив"], icon: <Briefcase className="w-5 h-5" /> },
+  { title: "Сайт агентства недвижимости", description: "Каталог объектов с фильтрацией, картой и формой заявки на просмотр.", tags: ["React", "Google Maps API"], icon: <Home className="w-5 h-5" /> },
+  { title: "Лендинг клиники", description: "Медицинский сайт с услугами, врачами, отзывами и онлайн-записью на приём.", tags: ["HTML", "CSS", "JavaScript"], icon: <Stethoscope className="w-5 h-5" /> },
+  { title: "Сайт учебного центра", description: "Лендинг для онлайн-школы с описанием курсов, преподавателями и формой записи.", tags: ["React", "CSS"], icon: <GraduationCap className="w-5 h-5" /> },
+  { title: "Сайт салона красоты", description: "Презентационная страница с услугами, прайсом, галереей работ и онлайн-записью.", tags: ["HTML", "CSS", "Адаптив"], icon: <Scissors className="w-5 h-5" /> },
+  { title: "Сайт автомастерской", description: "Сайт с перечнем услуг, ценами, фотогалереей и формой заявки на ремонт.", tags: ["HTML", "CSS", "JavaScript"], icon: <Car className="w-5 h-5" /> },
+  { title: "Лендинг фитнес-клуба", description: "Промо-страница с тарифами, расписанием занятий, тренерами и формой пробного визита.", tags: ["React", "CSS", "Адаптив"], icon: <Dumbbell className="w-5 h-5" /> },
 ];
 
 const SKILLS = [
@@ -57,7 +50,7 @@ export default function Index() {
       {/* NAV */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-background/95 backdrop-blur shadow-sm border-b border-border" : "bg-background/0"}`}>
         <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-          <span className="text-primary font-bold text-lg tracking-tight font-mono">&lt;mark /&gt;</span>
+          <span className="text-primary font-bold text-lg tracking-tight font-mono">&lt;вебожитель /&gt;</span>
           <div className="hidden md:flex gap-8">
             {NAV_LINKS.map((link) => (
               <button
@@ -100,7 +93,7 @@ export default function Index() {
           <span className="text-primary">под ключ</span>
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-10 leading-relaxed">
-          Современные и понятные сайты для вашего бизнеса
+          Современные, быстрые и удобные сайты для вашего бизнеса
         </p>
         <div className="flex gap-4 mb-16 flex-wrap">
           <button
@@ -130,7 +123,7 @@ export default function Index() {
         </div>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-5 text-muted-foreground leading-relaxed">
-            <p className="text-foreground text-xl font-semibold">Привет, меня зовут Марк 👋</p>
+            <p className="text-foreground text-xl font-semibold">Привет, я Вебожитель 👋</p>
             <p>
               Занимаюсь веб-разработкой. Помогаю бизнесу и частным клиентам получить качественный цифровой продукт.
             </p>
@@ -175,7 +168,7 @@ export default function Index() {
               <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="text-xs text-primary bg-primary/8 px-2 py-0.5 rounded font-mono">{tag}</span>
+                  <span key={tag} className="text-xs text-primary bg-primary/10 px-2 py-0.5 rounded font-mono">{tag}</span>
                 ))}
               </div>
               <button className="w-full py-2 border border-border rounded-lg text-sm text-muted-foreground hover:border-primary hover:text-primary transition-colors">
@@ -246,7 +239,7 @@ export default function Index() {
 
       {/* FOOTER */}
       <footer className="border-t border-border py-8 px-6 text-center text-muted-foreground text-sm">
-        <p>© 2025 Марк — Разработка сайтов под ключ</p>
+        <p>© 2025 Вебожитель — Разработка сайтов под ключ</p>
       </footer>
     </div>
   );
