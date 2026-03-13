@@ -158,7 +158,8 @@ export default function Index() {
           {PROJECTS.map((project) => (
             <div
               key={project.title}
-              className="group bg-card border border-border rounded-xl p-6 hover:border-primary hover:shadow-md transition-all flex flex-col"
+              onClick={() => window.open(project.demo, "_blank")}
+              className="group bg-card border border-border rounded-xl p-6 hover:border-primary hover:shadow-md transition-all flex flex-col cursor-pointer"
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="text-primary bg-primary/10 p-2 rounded-lg">{project.icon}</div>
@@ -166,11 +167,6 @@ export default function Index() {
               </div>
               <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="text-xs text-primary bg-primary/10 px-2 py-0.5 rounded font-mono">{tag}</span>
-                ))}
-              </div>
               <button className="w-full py-2 border border-border rounded-lg text-sm text-muted-foreground hover:border-primary hover:text-primary transition-colors">
                 Посмотреть
               </button>
