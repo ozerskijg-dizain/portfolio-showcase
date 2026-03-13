@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ExternalLink, ChevronDown, Globe, ShoppingCart, Camera, Send, Download, Menu, X, Utensils, Briefcase, Home, Stethoscope, GraduationCap, Scissors, Car, Dumbbell } from "lucide-react";
+import { ExternalLink, ChevronDown, Globe, ShoppingCart, Camera, Send, Download, Menu, X, Coffee, Sparkles, Newspaper, Fish, CalendarCheck, Calculator, HeartPulse, Brain, Bot, Database, Settings } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "О себе", id: "about" },
@@ -9,17 +9,17 @@ const NAV_LINKS = [
 ];
 
 const PROJECTS = [
-  { title: "Сайт для фотостудии", description: "Презентационный сайт с портфолио, галереей работ, расписанием и онлайн-записью на съёмку.", tags: ["React", "CSS", "Адаптив"], icon: <Camera className="w-5 h-5" /> },
-  { title: "Лендинг кофейни", description: "Стильная страница с меню, акциями, картой проезда и формой для бронирования столика.", tags: ["HTML", "CSS", "JavaScript"], icon: <Globe className="w-5 h-5" /> },
-  { title: "Интернет-магазин цветов", description: "Каталог с фильтрами, корзиной, оформлением заказа и уведомлениями через Telegram-бот.", tags: ["React", "Node.js", "Telegram API"], icon: <ShoppingCart className="w-5 h-5" /> },
-  { title: "Сайт ресторана", description: "Промо-страница с меню, историей заведения, фотогалереей и онлайн-бронированием стола.", tags: ["React", "CSS", "Адаптив"], icon: <Utensils className="w-5 h-5" /> },
-  { title: "Корпоративный сайт агентства", description: "Многостраничный сайт с описанием услуг, командой, кейсами и формой обратной связи.", tags: ["React", "TypeScript", "Адаптив"], icon: <Briefcase className="w-5 h-5" /> },
-  { title: "Сайт агентства недвижимости", description: "Каталог объектов с фильтрацией, картой и формой заявки на просмотр.", tags: ["React", "Google Maps API"], icon: <Home className="w-5 h-5" /> },
-  { title: "Лендинг клиники", description: "Медицинский сайт с услугами, врачами, отзывами и онлайн-записью на приём.", tags: ["HTML", "CSS", "JavaScript"], icon: <Stethoscope className="w-5 h-5" /> },
-  { title: "Сайт учебного центра", description: "Лендинг для онлайн-школы с описанием курсов, преподавателями и формой записи.", tags: ["React", "CSS"], icon: <GraduationCap className="w-5 h-5" /> },
-  { title: "Сайт салона красоты", description: "Презентационная страница с услугами, прайсом, галереей работ и онлайн-записью.", tags: ["HTML", "CSS", "Адаптив"], icon: <Scissors className="w-5 h-5" /> },
-  { title: "Сайт автомастерской", description: "Сайт с перечнем услуг, ценами, фотогалереей и формой заявки на ремонт.", tags: ["HTML", "CSS", "JavaScript"], icon: <Car className="w-5 h-5" /> },
-  { title: "Лендинг фитнес-клуба", description: "Промо-страница с тарифами, расписанием занятий, тренерами и формой пробного визита.", tags: ["React", "CSS", "Адаптив"], icon: <Dumbbell className="w-5 h-5" /> },
+  { title: "Сайт кофейни", description: "Современный сайт кофейни с меню и онлайн-заказом", demo: "/test/coffee", icon: <Coffee className="w-5 h-5" /> },
+  { title: "Сайт салона красоты", description: "Лендинг салона красоты с услугами и записью", demo: "/test/beauty-salon", icon: <Sparkles className="w-5 h-5" /> },
+  { title: "Новостной портал", description: "Многостраничный сайт новостей с категориями", demo: "/test/news", icon: <Newspaper className="w-5 h-5" /> },
+  { title: "Сайт рыбного магазина", description: "Интернет-витрина магазина морепродуктов", demo: "/test/seafood", icon: <Fish className="w-5 h-5" /> },
+  { title: "Трекер привычек", description: "Приложение для отслеживания ежедневных привычек", demo: "/test/habits", icon: <CalendarCheck className="w-5 h-5" /> },
+  { title: "Калькулятор услуг", description: "Интерактивный калькулятор стоимости услуг", demo: "/test/calculator", icon: <Calculator className="w-5 h-5" /> },
+  { title: "CRM для нутрициолога", description: "Система управления клиентами и программами питания", demo: "/test/nutrition-crm", icon: <HeartPulse className="w-5 h-5" /> },
+  { title: "Сайт психолога", description: "Персональный сайт специалиста с записью на консультацию", demo: "/test/psychologist", icon: <Brain className="w-5 h-5" /> },
+  { title: "AI консультант", description: "Интерфейс AI-ассистента для бизнеса", demo: "/test/ai-consultant", icon: <Bot className="w-5 h-5" /> },
+  { title: "AI CRM система", description: "CRM-панель с AI-автоматизацией процессов", demo: "/test/ai-crm", icon: <Database className="w-5 h-5" /> },
+  { title: "AI админ-панель", description: "Административная панель управления AI-агентами", demo: "/test/ai-admin", icon: <Settings className="w-5 h-5" /> },
 ];
 
 const SKILLS = [
