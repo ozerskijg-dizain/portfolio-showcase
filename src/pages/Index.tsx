@@ -7,6 +7,8 @@ import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import ProblemsSection from "@/components/sections/ProblemsSection";
 import PricingSection from "@/components/sections/PricingSection";
 import AboutSection from "@/components/sections/AboutSection";
+import WebsiteTypesSection from "@/components/sections/WebsiteTypesSection";
+import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
 
 const scrollTo = (id: string) => {
@@ -42,7 +44,13 @@ export default function Index() {
       {/* 8. About */}
       <AboutSection />
 
-      {/* 9. Contact */}
+      {/* 9. What kind of websites I build — SEO section */}
+      <WebsiteTypesSection />
+
+      {/* 10. FAQ — SEO section */}
+      <FAQSection />
+
+      {/* 11. Contact */}
       <ContactSection />
 
       {/* Footer */}
