@@ -138,7 +138,6 @@ export default function CalculatorDemo() {
     </div>
   );
 }
-        <p className="text-[#6060a0] mb-10">Настройте параметры и получите предварительную оценку</p>
 
         {/* Service type */}
         <div className="bg-white rounded-2xl p-6 mb-5 shadow-sm border border-[#dde4ff]">
