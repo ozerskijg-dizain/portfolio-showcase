@@ -17,6 +17,7 @@ const EXTRAS = [
 ];
 
 export default function CalculatorDemo() {
+  const [page, setPage] = useState<Page>("calc");
   const [service, setService] = useState(0);
   const [extras, setExtras] = useState<number[]>([]);
   const [pages, setPages] = useState(1);
@@ -29,10 +30,16 @@ export default function CalculatorDemo() {
   const pagesExtra = (pages - 1) * 3000;
   const total = base + extrasTotal + pagesExtra;
 
+  const nav: { id: Page; label: string }[] = [
+    { id: "calc", label: "Калькулятор" },
+    { id: "portfolio", label: "Портфолио" },
+    { id: "faq", label: "FAQ" },
+  ];
+
   return (
-    <div className="min-h-screen bg-[#f0f4ff] text-[#1a1a3e] font-sans">
+    <div className="min-h-screen bg-[#f0f4ff] text-[#1a1a3e] font-sans flex flex-col">
       {/* Header */}
-      <header className="bg-[#1a1a3e] text-white px-8 py-5 flex justify-between items-center">
+      <header className="bg-[#1a1a3e] text-white px-6 py-4 flex justify-between items-center sticky top-0 z-40">
         <span className="text-xl font-bold">🔢 Калькулятор сайта</span>
         <span className="text-sm text-blue-300">Вебожитель</span>
       </header>
