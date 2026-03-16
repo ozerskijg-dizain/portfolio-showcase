@@ -138,7 +138,6 @@ export default function CalculatorDemo() {
     </div>
   );
 }
-        <h1 className="text-3xl font-bold mb-2">Рассчитайте стоимость</h1>
         <p className="text-[#6060a0] mb-10">Настройте параметры и получите предварительную оценку</p>
 
         {/* Service type */}
