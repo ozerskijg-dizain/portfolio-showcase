@@ -1,6 +1,8 @@
 import { useState } from "react";
 import DemoCTA from "./DemoCTA";
 
+type Page = "calc" | "portfolio" | "faq";
+
 const SERVICES = [
   { label: "Лендинг", price: 15000 },
   { label: "Корпоративный сайт", price: 30000 },
