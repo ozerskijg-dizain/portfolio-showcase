@@ -222,6 +222,7 @@ export default function HabitsDemo() {
         )}
       </div>
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }

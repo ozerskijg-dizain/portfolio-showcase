@@ -211,6 +211,7 @@ export default function PsychologistDemo() {
         <p>© 2025 Елена Васильева · Психолог · Запись через сайт или Telegram</p>
       </footer>
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }

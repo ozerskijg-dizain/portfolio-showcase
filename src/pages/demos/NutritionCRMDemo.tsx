@@ -249,6 +249,7 @@ export default function NutritionCRMDemo() {
         </main>
       </div>
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }

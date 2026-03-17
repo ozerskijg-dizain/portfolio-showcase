@@ -136,6 +136,7 @@ export default function CalculatorDemo() {
       </div>
 
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }

@@ -147,6 +147,7 @@ export default function NewsDemo() {
         <p>© 2025 Вестник · Все права защищены</p>
       </footer>
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }

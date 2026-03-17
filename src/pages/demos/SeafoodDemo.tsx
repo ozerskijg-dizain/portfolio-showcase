@@ -237,6 +237,7 @@ export default function SeafoodDemo() {
         <p>© 2025 АтлантМаркет · Доставка 7 дней в неделю</p>
       </footer>
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }

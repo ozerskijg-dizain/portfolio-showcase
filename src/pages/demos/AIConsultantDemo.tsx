@@ -201,6 +201,7 @@ export default function AIConsultantDemo() {
 
       {page !== "chat" && <DemoCTA />}
       {page === "chat" && <DemoCTA />}
+      <ScrollToTop />
     </div>
   );
 }
