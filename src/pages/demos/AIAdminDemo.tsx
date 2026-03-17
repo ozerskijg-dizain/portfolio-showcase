@@ -229,6 +229,7 @@ export default function AIAdminDemo() {
         </main>
       </div>
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }

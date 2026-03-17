@@ -210,6 +210,7 @@ export default function CoffeeDemo() {
         <p>© 2025 Кофейня «Зерно» · ул. Кофейная, 12 · Пн–Вс 8:00–22:00</p>
       </footer>
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }

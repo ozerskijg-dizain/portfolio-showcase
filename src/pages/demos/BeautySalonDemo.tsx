@@ -231,6 +231,7 @@ export default function BeautySalonDemo() {
         <p>© 2025 Bloom Studio · ул. Цветочная, 5 · Ежедневно 9:00–21:00</p>
       </footer>
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }
