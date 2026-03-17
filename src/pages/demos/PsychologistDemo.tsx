@@ -208,7 +208,7 @@ export default function PsychologistDemo() {
       </div>
 
       <footer className="border-t border-[#e8eaf8] px-8 py-6 text-center text-[#9090b8] text-sm">
-        <p>© 2025 Елена Васильева · Психолог · Запись через сайт или Telegram</p>
+        <p>© 2025 Елена Васильева · Психолог · Запись через сайт</p>
       </footer>
       <DemoCTA />
       <ScrollToTop />
