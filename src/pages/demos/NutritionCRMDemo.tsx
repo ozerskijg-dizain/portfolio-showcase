@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DemoCTA from "./DemoCTA";
+import ScrollToTop from "@/components/ScrollToTop";
 
 type Page = "dashboard" | "clients" | "programs" | "analytics";
 
