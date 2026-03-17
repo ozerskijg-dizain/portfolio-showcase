@@ -1,3 +1,5 @@
+import { useContactModal } from "@/context/ContactModalContext";
+
 interface PricingSectionProps {
   onScrollTo: (id: string) => void;
 }
@@ -23,7 +25,9 @@ const PLANS = [
   },
 ];
 
-export default function PricingSection({ onScrollTo }: PricingSectionProps) {
+export default function PricingSection({ onScrollTo: _onScrollTo }: PricingSectionProps) {
+  const { openModal } = useContactModal();
+
   return (
     <section id="pricing" className="py-24 px-6 max-w-5xl mx-auto">
       <div className="flex items-center gap-4 mb-12">
@@ -61,7 +65,7 @@ export default function PricingSection({ onScrollTo }: PricingSectionProps) {
               ))}
             </ul>
             <button
-              onClick={() => onScrollTo("contact")}
+              onClick={openModal}
               className={`w-full py-2.5 rounded-lg text-sm font-semibold transition-all ${
                 plan.highlighted
                   ? "bg-primary-foreground text-primary hover:opacity-90"
