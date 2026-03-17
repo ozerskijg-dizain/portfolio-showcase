@@ -10,6 +10,7 @@ import AboutSection from "@/components/sections/AboutSection";
 import WebsiteTypesSection from "@/components/sections/WebsiteTypesSection";
 import FAQSection from "@/components/sections/FAQSection";
 import ContactSection from "@/components/sections/ContactSection";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const scrollTo = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -57,6 +58,8 @@ export default function Index() {
       <footer className="border-t border-border py-8 px-6 text-center text-muted-foreground text-sm">
         <p>© 2025 Вебожитель — Разработка сайтов и автоматизация бизнеса</p>
       </footer>
+
+      <ScrollToTop />
     </div>
   );
 }
