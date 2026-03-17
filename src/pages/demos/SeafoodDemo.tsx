@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DemoCTA from "./DemoCTA";
+import ScrollToTop from "@/components/ScrollToTop";
 
 type Page = "home" | "catalog" | "delivery" | "about";
 
@@ -236,6 +237,7 @@ export default function SeafoodDemo() {
         <p>© 2025 АтлантМаркет · Доставка 7 дней в неделю</p>
       </footer>
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }

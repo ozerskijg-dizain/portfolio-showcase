@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DemoCTA from "./DemoCTA";
+import ScrollToTop from "@/components/ScrollToTop";
 
 type Page = "home" | "chat" | "pricing" | "about";
 
@@ -200,6 +201,7 @@ export default function AIConsultantDemo() {
 
       {page !== "chat" && <DemoCTA />}
       {page === "chat" && <DemoCTA />}
+      <ScrollToTop />
     </div>
   );
 }

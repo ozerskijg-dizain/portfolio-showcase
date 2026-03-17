@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DemoCTA from "./DemoCTA";
+import ScrollToTop from "@/components/ScrollToTop";
 
 type Page = "agents" | "logs" | "api" | "billing";
 
@@ -228,6 +229,7 @@ export default function AIAdminDemo() {
         </main>
       </div>
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DemoCTA from "./DemoCTA";
+import ScrollToTop from "@/components/ScrollToTop";
 
 type Page = "home" | "week" | "stats" | "settings";
 
@@ -221,6 +222,7 @@ export default function HabitsDemo() {
         )}
       </div>
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }

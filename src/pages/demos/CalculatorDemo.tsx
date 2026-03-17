@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DemoCTA from "./DemoCTA";
+import ScrollToTop from "@/components/ScrollToTop";
 
 type Page = "calc" | "portfolio" | "faq";
 
@@ -135,6 +136,7 @@ export default function CalculatorDemo() {
       </div>
 
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DemoCTA from "./DemoCTA";
+import ScrollToTop from "@/components/ScrollToTop";
 
 type Page = "dashboard" | "deals" | "contacts" | "automation";
 
@@ -209,6 +210,7 @@ export default function AICRMDemo() {
         )}
       </div>
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }

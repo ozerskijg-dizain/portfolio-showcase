@@ -1,4 +1,5 @@
 import { AlertCircle } from "lucide-react";
+import { useContactModal } from "@/context/ContactModalContext";
 
 interface ProblemsSectionProps {
   onScrollTo: (id: string) => void;
@@ -12,7 +13,9 @@ const PROBLEMS = [
   "Нужно запустить быстро",
 ];
 
-export default function ProblemsSection({ onScrollTo }: ProblemsSectionProps) {
+export default function ProblemsSection({ onScrollTo: _onScrollTo }: ProblemsSectionProps) {
+  const { openModal } = useContactModal();
+
   return (
     <section id="problems" className="py-24 px-6 max-w-5xl mx-auto">
       <div className="flex items-center gap-4 mb-12">
@@ -33,7 +36,7 @@ export default function ProblemsSection({ onScrollTo }: ProblemsSectionProps) {
       </div>
       <div className="text-center">
         <button
-          onClick={() => onScrollTo("contact")}
+          onClick={openModal}
           className="px-8 py-3 bg-primary text-primary-foreground rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity shadow-sm"
         >
           Решить эту проблему

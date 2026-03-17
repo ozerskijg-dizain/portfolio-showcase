@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DemoCTA from "./DemoCTA";
+import ScrollToTop from "@/components/ScrollToTop";
 
 type Page = "home" | "tech" | "economy" | "sport" | "article";
 
@@ -146,6 +147,7 @@ export default function NewsDemo() {
         <p>© 2025 Вестник · Все права защищены</p>
       </footer>
       <DemoCTA />
+      <ScrollToTop />
     </div>
   );
 }
