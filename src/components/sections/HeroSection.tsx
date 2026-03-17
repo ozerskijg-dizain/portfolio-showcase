@@ -1,10 +1,13 @@
-import { ChevronDown, Send, FolderOpen } from "lucide-react";
+import { ChevronDown, FolderOpen, MessageCircle } from "lucide-react";
+import { useContactModal } from "@/context/ContactModalContext";
 
 interface HeroSectionProps {
   onScrollTo: (id: string) => void;
 }
 
 export default function HeroSection({ onScrollTo }: HeroSectionProps) {
+  const { openModal } = useContactModal();
+
   return (
     <section className="min-h-screen flex flex-col justify-center px-6 max-w-5xl mx-auto pt-20 relative">
       <p className="text-primary text-sm mb-3 tracking-widest uppercase font-mono font-semibold">
@@ -25,15 +28,13 @@ export default function HeroSection({ onScrollTo }: HeroSectionProps) {
           <FolderOpen className="w-4 h-4" />
           Смотреть портфолио
         </button>
-        <a
-          href="https://t.me/webozhitel"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={openModal}
           className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground rounded-xl text-sm font-medium hover:border-primary hover:text-primary transition-colors"
         >
-          <Send className="w-4 h-4" />
-          Написать в Telegram
-        </a>
+          <MessageCircle className="w-4 h-4" />
+          Написать мне
+        </button>
       </div>
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-muted-foreground">
         <ChevronDown className="w-5 h-5" />

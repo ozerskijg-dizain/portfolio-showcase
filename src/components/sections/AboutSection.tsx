@@ -16,7 +16,7 @@ export default function AboutSection() {
             В работе ценю <span className="text-primary font-semibold">чистый код</span>, продуманный интерфейс и внимание к деталям.
           </p>
           <p className="text-foreground font-medium">
-            И да — я ещё умею вышивать крестиком.
+            А ещё я крестиком вышиваю.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-4">
