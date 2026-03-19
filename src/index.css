@@ -5,15 +5,15 @@
 @layer base {
   :root {
     --background: 210 30% 98%;
-    --foreground: 220 20% 18%;
+    --foreground: 220 20% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 18%;
+    --card-foreground: 220 20% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 18%;
+    --popover-foreground: 220 20% 14%;
 
-    --primary: 214 80% 52%;
+    --primary: 214 80% 48%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 20% 94%;
@@ -22,7 +22,7 @@
     --muted: 210 20% 94%;
     --muted-foreground: 215 14% 52%;
 
-    --accent: 214 80% 52%;
+    --accent: 214 80% 48%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 50%;
@@ -30,18 +30,24 @@
 
     --border: 214 20% 88%;
     --input: 214 20% 88%;
-    --ring: 214 80% 52%;
+    --ring: 214 80% 48%;
 
     --radius: 0.75rem;
 
+    /* custom gradient tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(214 80% 48% / 0.08) 0%, hsl(210 30% 98%) 60%);
+    --gradient-section-alt: linear-gradient(180deg, hsl(214 80% 48% / 0.04) 0%, hsl(210 30% 98%) 100%);
+    --shadow-card: 0 2px 12px -2px hsl(214 80% 48% / 0.12);
+    --shadow-card-hover: 0 8px 24px -4px hsl(214 80% 48% / 0.22);
+
     --sidebar-background: 210 30% 98%;
     --sidebar-foreground: 220 20% 18%;
-    --sidebar-primary: 214 80% 52%;
+    --sidebar-primary: 214 80% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 210 20% 94%;
     --sidebar-accent-foreground: 220 20% 18%;
     --sidebar-border: 214 20% 88%;
-    --sidebar-ring: 214 80% 52%;
+    --sidebar-ring: 214 80% 48%;
   }
 }
 
@@ -56,5 +62,17 @@
 
   html {
     scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .section-alt {
+    background: var(--gradient-section-alt);
+  }
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+  .card-shadow-hover:hover {
+    box-shadow: var(--shadow-card-hover);
   }
 }
