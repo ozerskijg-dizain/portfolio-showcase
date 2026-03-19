@@ -55,7 +55,7 @@ export default function Index() {
       <ContactSection />
 
       {/* Footer */}
-      <footer className="border-t border-border py-8 px-6 text-center text-muted-foreground text-sm">
+      <footer className="border-t border-border py-8 px-6 text-center text-muted-foreground text-sm bg-card">
         <p>© 2025 Вебожитель — Разработка сайтов и автоматизация бизнеса</p>
       </footer>
 

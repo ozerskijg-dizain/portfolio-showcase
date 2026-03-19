@@ -10,12 +10,12 @@ const FAQS = [
   {
     question: "Сколько времени занимает создание сайта?",
     answer:
-      "Лендинг — 3–7 дней, корпоративный сайт — 1–2 недели, интернет-магазин — 2–4 недели. Срок зависит от объёма работ и скорости согласования материалов с вашей стороны.",
+      "Лендинг — 3–7 дней, корпоративный сайт — 1–2 недели, интернет-магазин — 2–4 недели. Срок зависит от объёма работ и скорости согласования материалов.",
   },
   {
     question: "Вы помогаете с хостингом и доменом?",
     answer:
-      "Да, помогаю с выбором и подключением хостинга и домена. Могу взять это на себя полностью или проконсультировать, если хотите разобраться сами.",
+      "Да, помогаю с выбором и подключением хостинга и домена. Могу взять это на себя полностью или проконсультировать.",
   },
   {
     question: "Сайт будет работать на телефоне?",
@@ -25,7 +25,7 @@ const FAQS = [
   {
     question: "Можете переделать уже существующий сайт?",
     answer:
-      "Да, занимаюсь редизайном и доработкой существующих сайтов. Оцениваю текущий сайт и предлагаю конкретные улучшения — под ваш бюджет и цели.",
+      "Да, занимаюсь редизайном и доработкой существующих сайтов. Оцениваю текущий сайт и предлагаю конкретные улучшения под ваш бюджет.",
   },
 ];
 
@@ -33,9 +33,9 @@ export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 px-6 max-w-5xl mx-auto">
-      <div className="flex items-center gap-4 mb-12">
-        <span className="text-primary text-sm tracking-widest uppercase font-mono font-semibold">11.</span>
+    <section id="faq" className="py-20 px-6 max-w-5xl mx-auto">
+      <div className="flex items-center gap-4 mb-10">
+        <span className="text-primary text-sm tracking-widest uppercase font-mono font-semibold">10.</span>
         <h2 className="text-3xl font-bold">Частые вопросы</h2>
         <div className="flex-1 h-px bg-border" />
       </div>
@@ -43,22 +43,22 @@ export default function FAQSection() {
         {FAQS.map((faq, i) => (
           <div
             key={i}
-            className="border border-border rounded-xl overflow-hidden bg-card transition-all"
+            className="border border-border rounded-2xl overflow-hidden bg-card transition-all card-shadow"
           >
             <button
               className="w-full text-left px-6 py-4 flex justify-between items-center gap-4 hover:bg-muted/40 transition-colors"
               onClick={() => setOpen(open === i ? null : i)}
               aria-expanded={open === i}
             >
-              <span className="font-medium text-foreground">{faq.question}</span>
+              <span className="font-semibold text-foreground text-sm">{faq.question}</span>
               <ChevronDown
                 className={`w-4 h-4 shrink-0 text-muted-foreground transition-transform duration-200 ${
-                  open === i ? "rotate-180" : ""
+                  open === i ? "rotate-180 text-primary" : ""
                 }`}
               />
             </button>
             {open === i && (
-              <div className="px-6 pb-5 pt-1 text-muted-foreground text-sm leading-relaxed border-t border-border">
+              <div className="px-6 pb-5 pt-1 text-muted-foreground text-sm leading-relaxed border-t border-border bg-muted/20">
                 {faq.answer}
               </div>
             )}
