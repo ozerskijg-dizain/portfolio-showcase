@@ -20,42 +20,19 @@ export default function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Navbar onScrollTo={scrollTo} />
-
-      {/* 1. Hero */}
       <HeroSection onScrollTo={scrollTo} />
-
-      {/* 2. Portfolio */}
       <PortfolioSection />
-
-      {/* 3. Services */}
       <ServicesSection onScrollTo={scrollTo} />
-
-      {/* 4. Why choose me */}
       <WhyUsSection />
-
-      {/* 5. How I work */}
       <HowItWorksSection />
-
-      {/* 6. Common problems */}
       <ProblemsSection onScrollTo={scrollTo} />
-
-      {/* 7. Pricing */}
       <PricingSection onScrollTo={scrollTo} />
-
-      {/* 8. About */}
       <AboutSection />
-
-      {/* 9. What kind of websites I build — SEO section */}
       <WebsiteTypesSection />
-
-      {/* 10. FAQ — SEO section */}
       <FAQSection />
-
-      {/* 11. Contact */}
       <ContactSection />
 
-      {/* Footer */}
-      <footer className="border-t border-border py-8 px-6 text-center text-muted-foreground text-sm bg-card">
+      <footer className="border-t border-border py-6 px-6 text-center text-muted-foreground text-sm bg-card">
         <p>© 2025 Вебожитель — Разработка сайтов и автоматизация бизнеса</p>
       </footer>
 

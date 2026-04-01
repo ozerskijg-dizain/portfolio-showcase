@@ -6,6 +6,8 @@ interface ContactModalProps {
   onClose: () => void;
 }
 
+const EDGE_FUNCTION_URL = "https://iddgkybfmafmoxyolsre.supabase.co/functions/v1/hyper-responder";
+
 export default function ContactModal({ open, onClose }: ContactModalProps) {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -25,36 +27,26 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
     e.preventDefault();
     if (!message.trim()) return;
 
-    const token = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-    const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
-
-    if (!token || !chatId) {
-      setErrorMsg("Сервис временно недоступен. Напишите напрямую: oz2000@yandex.ru");
-      setStatus("error");
-      return;
-    }
-
     setStatus("loading");
     setErrorMsg("");
 
     try {
-      const text = `Новое сообщение с сайта вебожителя:\n\n${message.trim()}`;
-      const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+      const res = await fetch(EDGE_FUNCTION_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ chat_id: chatId, text }),
+        body: JSON.stringify({ message: message.trim() }),
       });
 
-      const data = await res.json();
-      if (!res.ok || !data.ok) {
-        throw new Error(data.description || "Ошибка отправки");
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Ошибка отправки");
       }
 
       setStatus("success");
       setMessage("");
     } catch (err) {
-      console.error("Telegram send error:", err);
-      setErrorMsg("Не удалось отправить. Попробуйте ещё раз или напишите на oz2000@yandex.ru");
+      console.error("Send error:", err);
+      setErrorMsg("Не удалось отправить. Попробуйте ещё раз.");
       setStatus("error");
     }
   };
@@ -66,10 +58,8 @@ export default function ContactModal({ open, onClose }: ContactModalProps) {
       className="fixed inset-0 z-[100] flex items-center justify-center p-4"
       onClick={(e) => e.target === e.currentTarget && handleClose()}
     >
-      {/* Backdrop */}
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={handleClose} />
 
-      {/* Modal */}
       <div className="relative bg-card border border-border rounded-2xl shadow-2xl w-full max-w-md p-6 z-10">
         <button
           onClick={handleClose}
