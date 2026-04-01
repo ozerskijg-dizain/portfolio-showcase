@@ -13,7 +13,7 @@ import BeautySalonDemo from "./pages/demos/BeautySalonDemo";
 import NewsDemo from "./pages/demos/NewsDemo";
 import SeafoodDemo from "./pages/demos/SeafoodDemo";
 import HabitsDemo from "./pages/demos/HabitsDemo";
-import CalculatorDemo from "./pages/demos/CalculatorDemo";
+
 import NutritionCRMDemo from "./pages/demos/NutritionCRMDemo";
 import PsychologistDemo from "./pages/demos/PsychologistDemo";
 import AIConsultantDemo from "./pages/demos/AIConsultantDemo";

@@ -5,7 +5,7 @@ export default function ContactSection() {
   const { openModal } = useContactModal();
 
   return (
-    <section id="contact" className="py-20 px-6">
+    <section id="contact" className="py-14 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="flex items-center gap-4 mb-10">
           <span className="text-primary text-sm tracking-widest uppercase font-mono font-semibold">11.</span>
