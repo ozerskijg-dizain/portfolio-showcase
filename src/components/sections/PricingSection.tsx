@@ -1,9 +1,23 @@
+import { useState } from "react";
 import { Check } from "lucide-react";
 import { useContactModal } from "@/context/ContactModalContext";
 
 interface PricingSectionProps {
   onScrollTo: (id: string) => void;
 }
+
+const SERVICES = [
+  { label: "Лендинг", price: 15000 },
+  { label: "Корпоративный сайт", price: 30000 },
+  { label: "Интернет-магазин", price: 50000 },
+];
+
+const EXTRAS = [
+  { label: "SEO-оптимизация", price: 5000 },
+  { label: "Интеграция CRM", price: 8000 },
+  { label: "Онлайн-оплата", price: 6000 },
+  { label: "Чат-бот", price: 10000 },
+];
 
 const PLANS = [
   {
@@ -29,16 +43,29 @@ const PLANS = [
 
 export default function PricingSection({ onScrollTo: _onScrollTo }: PricingSectionProps) {
   const { openModal } = useContactModal();
+  const [service, setService] = useState(0);
+  const [extras, setExtras] = useState<number[]>([]);
+  const [pages, setPages] = useState(1);
+
+  const toggleExtra = (i: number) =>
+    setExtras((p) => (p.includes(i) ? p.filter((x) => x !== i) : [...p, i]));
+
+  const base = SERVICES[service].price;
+  const extrasTotal = extras.reduce((s, i) => s + EXTRAS[i].price, 0);
+  const pagesExtra = (pages - 1) * 3000;
+  const total = base + extrasTotal + pagesExtra;
 
   return (
-    <section id="pricing" className="py-20 px-6 section-alt">
+    <section id="pricing" className="py-14 px-6 section-alt">
       <div className="max-w-5xl mx-auto">
-        <div className="flex items-center gap-4 mb-10">
+        <div className="flex items-center gap-4 mb-8">
           <span className="text-primary text-sm tracking-widest uppercase font-mono font-semibold">07.</span>
           <h2 className="text-3xl font-bold">Стоимость</h2>
           <div className="flex-1 h-px bg-border" />
         </div>
-        <div className="grid sm:grid-cols-3 gap-6 mb-6">
+
+        {/* Plan cards */}
+        <div className="grid sm:grid-cols-3 gap-5 mb-10">
           {PLANS.map((plan) => (
             <div
               key={plan.title}
@@ -85,6 +112,82 @@ export default function PricingSection({ onScrollTo: _onScrollTo }: PricingSecti
             </div>
           ))}
         </div>
+
+        {/* Interactive calculator */}
+        <div className="bg-card border border-border rounded-2xl p-6 card-shadow mb-6">
+          <h3 className="font-bold text-lg mb-5 flex items-center gap-2">
+            🔢 Калькулятор стоимости
+          </h3>
+
+          <div className="grid sm:grid-cols-3 gap-3 mb-5">
+            {SERVICES.map((s, i) => (
+              <button
+                key={s.label}
+                onClick={() => setService(i)}
+                className={`p-4 rounded-xl border-2 text-sm font-medium transition-all text-center ${
+                  service === i
+                    ? "border-primary bg-primary/5 text-primary"
+                    : "border-border hover:border-primary/40"
+                }`}
+              >
+                <div className="font-bold text-base mb-1">{s.label}</div>
+                <div className="text-xs text-muted-foreground">от {s.price.toLocaleString("ru")} ₽</div>
+              </button>
+            ))}
+          </div>
+
+          <div className="mb-5">
+            <label className="font-semibold text-sm mb-2 block">
+              Количество страниц: <span className="text-primary">{pages}</span>
+            </label>
+            <input
+              type="range"
+              min={1}
+              max={20}
+              value={pages}
+              onChange={(e) => setPages(Number(e.target.value))}
+              className="w-full accent-primary"
+            />
+            <div className="flex justify-between text-xs text-muted-foreground mt-1">
+              <span>1 стр.</span>
+              <span>20 стр.</span>
+            </div>
+          </div>
+
+          <div className="mb-5">
+            <label className="font-semibold text-sm mb-3 block">Дополнительно</label>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {EXTRAS.map((e, i) => (
+                <button
+                  key={e.label}
+                  onClick={() => toggleExtra(i)}
+                  className={`flex justify-between items-center p-3 rounded-xl border-2 text-sm transition-all ${
+                    extras.includes(i)
+                      ? "border-primary bg-primary/5 text-primary"
+                      : "border-border hover:border-primary/40"
+                  }`}
+                >
+                  <span>{e.label}</span>
+                  <span className="font-semibold">+{e.price.toLocaleString("ru")} ₽</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-primary text-primary-foreground rounded-2xl p-5 flex justify-between items-center">
+            <div>
+              <p className="text-primary-foreground/70 text-sm mb-1">Итоговая стоимость</p>
+              <p className="text-3xl font-bold">{total.toLocaleString("ru")} ₽</p>
+            </div>
+            <button
+              onClick={openModal}
+              className="bg-primary-foreground text-primary px-6 py-3 rounded-xl font-semibold text-sm hover:opacity-90 transition-opacity"
+            >
+              Заказать
+            </button>
+          </div>
+        </div>
+
         <p className="text-center text-muted-foreground text-sm">
           Точную цену называю после обсуждения задачи — пишите, согласую бюджет под вас.
         </p>

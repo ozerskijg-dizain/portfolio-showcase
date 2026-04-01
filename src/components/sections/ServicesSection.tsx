@@ -37,7 +37,7 @@ export default function ServicesSection({ onScrollTo: _onScrollTo }: ServicesSec
   const { openModal } = useContactModal();
 
   return (
-    <section id="services" className="py-20 px-6 section-alt">
+    <section id="services" className="py-14 px-6 section-alt">
       <div className="max-w-5xl mx-auto">
         <div className="flex items-center gap-4 mb-10">
           <span className="text-primary text-sm tracking-widest uppercase font-mono font-semibold">03.</span>

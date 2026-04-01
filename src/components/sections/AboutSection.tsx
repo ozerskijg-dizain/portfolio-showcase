@@ -7,13 +7,13 @@ const STATS = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 px-6 max-w-5xl mx-auto">
-      <div className="flex items-center gap-4 mb-10">
+    <section id="about" className="py-14 px-6 max-w-5xl mx-auto">
+      <div className="flex items-center gap-4 mb-8">
         <span className="text-primary text-sm tracking-widest uppercase font-mono font-semibold">08.</span>
         <h2 className="text-3xl font-bold">Кто такой Вебожитель</h2>
         <div className="flex-1 h-px bg-border" />
       </div>
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+      <div className="grid md:grid-cols-2 gap-8 items-center">
         <div className="space-y-4 text-muted-foreground leading-relaxed">
           <p className="text-foreground text-xl font-bold">Привет 👋</p>
           <p>

@@ -11,7 +11,7 @@ export default function HeroSection({ onScrollTo }: HeroSectionProps) {
   const { openModal } = useContactModal();
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center px-6 max-w-5xl mx-auto pt-20 overflow-hidden">
+    <section className="relative min-h-[85vh] flex flex-col justify-center px-6 max-w-5xl mx-auto pt-20 overflow-hidden">
       {/* Background accent */}
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full bg-primary/4 blur-3xl pointer-events-none" />

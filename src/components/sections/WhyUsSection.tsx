@@ -33,7 +33,7 @@ const BENEFITS = [
 
 export default function WhyUsSection() {
   return (
-    <section id="why" className="py-20 px-6 max-w-5xl mx-auto">
+    <section id="why" className="py-14 px-6 max-w-5xl mx-auto">
       <div className="flex items-center gap-4 mb-10">
         <span className="text-primary text-sm tracking-widest uppercase font-mono font-semibold">04.</span>
         <h2 className="text-3xl font-bold">Почему выбирают меня</h2>
