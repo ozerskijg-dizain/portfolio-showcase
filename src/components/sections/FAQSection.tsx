@@ -33,7 +33,7 @@ export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-20 px-6 max-w-5xl mx-auto">
+    <section id="faq" className="py-14 px-6 max-w-5xl mx-auto">
       <div className="flex items-center gap-4 mb-10">
         <span className="text-primary text-sm tracking-widest uppercase font-mono font-semibold">10.</span>
         <h2 className="text-3xl font-bold">Частые вопросы</h2>
